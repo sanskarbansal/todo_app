@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <title>Todo App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <h1>TODO APP</h1>
+            <form action="/add-todo" method="post" id="add-task-form">
+                <div id="description-container">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" placeholder="Enter your todo task."></textarea>
+                </div>
+                <div id="category-container">
+                    <label for="category">Category</label>
+                    <select name="category" id="category">                        
+                        <option>Choose A Category</option>
+                        <option value="personal">Personal</option>
+                        <option value="work">Work</option>
+                        <option value="school">School</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div id="due-date-container">
+                    <label for="due-date">Due Date</label>
+                    <input type="date" name="date" id="due-date">
+                </div>
+            </form>
+            <div id="btns-container">
+                <button type="submit" class="btn black" form="add-task-form"><i class="fa fa-plus"></i> ADD TASK</button>
+                <button class="btn red"> <i class="fa fa-trash"></i> DELETE TASK</button>
+            </div>
+        </div>
+        <div class="todo-container">
+            <% for(let i = 0; i< todos.length; i++){ %> 
+            <div class="todo">
+                <input type="checkbox" name="todo-pending" id="pending-todo">  
+                <div class="todo-details">
+                    <h3><%= todos[i].description %></h3>
+                    <p> <i class="fa fa-calendar"></i> <%= date[i] %></p>
+                </div>
+                <div class="todo-category">
+                    <%= todos[i].category %>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
