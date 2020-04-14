@@ -14,10 +14,10 @@ $('#delete-btn').on('click', function(){
     var query = [];
     $('.pending-todo:checked').each(function(){
         query.push($(this).val()); 
-        console.log($(this).val()); 
-    });  
-    window.location.pathname = "/delete-todo/" + query; 
-
+    }); 
+    if(query.length > 0 ){
+        window.location.pathname = "/delete-todo/" + query; 
+    }
 });
 $('.todo').on('click', function(){
     var toggle = $(this).children('.pending-todo').prop('checked'); 
@@ -26,5 +26,13 @@ $('.todo').on('click', function(){
     }else{
         $(this).children('.pending-todo').prop('checked', true); 
     }
-    // $(this).children('.pending-todo').click();  
-})
+}); 
+$('#add-task-form').on('submit', function(e){
+    var desc = $('#description').val(); 
+    var date = $('#due-date').val(); 
+    if(desc.trim() =="" || date.trim() == ""){
+        alert("Please dont put description or date empty!"); 
+        e.preventDefault(); 
+    }
+
+});

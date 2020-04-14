@@ -80,13 +80,16 @@ option:focus, option:active{
 #category{
     width: 100%; 
     border: none; 
-    font-size: 1.1em;
+    font-family: monospace;
+    font-size: 1.25em;
     background-color: transparent;
 }
 #category option{
     padding: 10px 0; 
 }
-
+.transparent{
+    background-color:transparent !important;
+}
 #btns-container{
     display: flex;
     justify-content: space-evenly;

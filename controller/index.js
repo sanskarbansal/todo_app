@@ -25,20 +25,26 @@ module.exports.home = function(req, res){
 
 //Controller for add-todo route i.e /add-todo.
 module.exports.addTodo = function(req, res){
-
+    var desc = req.body.description; 
+    var date = req.body.date; 
+    var cat = req.body.category; 
+    
+    //Validating whether the form data is blank or not. 
+    if(desc.trim() != "" && date.trim() != ""){
     //Creating a documnet of Todo Schema. 
-    Todo.create({
-        description: req.body.description, 
-        deadline: req.body.date, 
-        category: req.body.category
-    },
-    (err, document)=>{
-        if(err){
-            console.log("Error while creating todo!"); 
-            return ;
-        }
-        return res.redirect('back'); 
-    });  
+        Todo.create({
+            description: desc, 
+            deadline: date, 
+            category: cat
+        },
+        (err, document)=>{
+            if(err){
+                console.log("Error while creating todo!"); 
+                return ;
+            } 
+        });
+    }
+    return res.redirect('back');   
 }
 
 

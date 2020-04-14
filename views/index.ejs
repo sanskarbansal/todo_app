@@ -25,7 +25,7 @@
                 <div id="category-container">
                     <label for="category">Category</label>
                     <select name="category" id="category">                        
-                        <option>Choose A Category</option>
+                        <option value="">Choose A Category</option>
                         <option value="personal">Personal</option>
                         <option value="work">Work</option>
                         <option value="school">School</option>
@@ -39,23 +39,11 @@
                 </div>
             </form>
             <div id="btns-container">
-                <button type="submit" class="btn black" form="add-task-form"><i class="fa fa-plus"></i> ADD TASK</button>
+                <button type="submit" class="btn black" id="add-btn" form="add-task-form"><i class="fa fa-plus"></i> ADD TASK</button>
                 <button class="btn red" id="delete-btn"> <i class="fa fa-trash"></i> DELETE TASK</button>
             </div>
         </div>
         <div class="todo-container">
-            <!-- <% for(let i = 0; i< todos.length; i++){ %> 
-            <div class="todo">
-                <input type="checkbox" name="todo-pending" class="pending-todo" value="<%= todos[i].id %>">  
-                <div class="todo-details">
-                    <h3><%= todos[i].description %></h3>
-                    <p> <i class="fa fa-calendar"></i> <%= date[i] %></p>
-                </div>
-                <div class="todo-category">
-                    <%= todos[i].category %>
-                </div>
-            </div>
-            <% } %> -->
            <% for(let i = 0; i< todos.length; i++){ %> 
             <div class="todo">
                 <input type="checkbox" name="todo-pending" class="pending-todo" value="<%= todos[i].id %>">  
@@ -70,6 +58,8 @@
                     <div class="todo-category black">
                 <% }else if( todos[i].category == "other"){ %>
                     <div class="todo-category blue">
+                <% }else if( todos[i].category == ""){ %>
+                    <div class="todo-category transparent">
                 <% } else{ %>
                     <div class="todo-category">
                 <% } %>
