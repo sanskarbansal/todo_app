@@ -28,3 +28,16 @@ module.exports.addTodo = function(req, res){
     }); 
     console.log(req.body); 
 }
+module.exports.deleteTodo = function(req, res){
+    let arr = req.params.id.split(','); 
+    arr.forEach(element => {
+        Todo.findByIdAndDelete(element, (err)=>{
+            if(err){
+                console.log("Error while deleting document."); 
+                return; 
+            }
+            console.log("deted succesfully!"); 
+        })
+    });
+   res.redirect('back'); 
+}
