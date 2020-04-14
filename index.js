@@ -29,5 +29,5 @@ app.listen(PORT, (err)=>{
         console.log(err); 
         return ;
     }
-    console.log(`Server started on port: ${PORT}....`); 
+    console.log(`Server started on port: ${PORT}.`); 
 }); 

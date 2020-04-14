@@ -19,3 +19,12 @@ $('#delete-btn').on('click', function(){
     window.location.pathname = "/delete-todo/" + query; 
 
 });
+$('.todo').on('click', function(){
+    var toggle = $(this).children('.pending-todo').prop('checked'); 
+    if(toggle){
+        $(this).children('.pending-todo').prop('checked', false); 
+    }else{
+        $(this).children('.pending-todo').prop('checked', true); 
+    }
+    // $(this).children('.pending-todo').click();  
+})
