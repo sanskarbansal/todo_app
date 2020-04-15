@@ -15,6 +15,10 @@ const todoSchema = new Schema({
     }, 
     category: {
         type: String, 
+    }, 
+    user: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'user' 
     }
 }); 
 

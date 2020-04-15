@@ -16,7 +16,7 @@ $('#delete-btn').on('click', function(){
         query.push($(this).val()); 
     }); 
     if(query.length > 0 ){
-        window.location.pathname = "/delete-todo/" + query; 
+        window.location.pathname = "/user/delete-todo/" + query; 
     }
 });
 $('.todo').on('click', function(){
