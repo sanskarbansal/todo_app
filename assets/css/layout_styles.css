@@ -1,0 +1,36 @@
+body{
+    margin: 0; 
+    background-color: rgba(0, 0, 0, 0.4);  
+}
+
+.container{
+    width: 80%; 
+    margin: 0 auto; 
+    background-color: white; 
+    box-shadow: 0 0 4px 0 rgb(104, 103, 103);
+    border-radius: 5px; 
+}
+
+.btn{
+    border: none; 
+    font-size: 1.5em; 
+    background-color: blueviolet; 
+    color: white; 
+    border-radius: 2px;
+    padding: 15px 10px; 
+    font-family: monospace;
+    cursor: pointer;
+}
+.black{
+    background-color: black; 
+}
+.red{
+    background-color: red;
+}
+
+.purple{
+    background-color: purple;
+}
+.blue{
+    background-color: blue;
+}

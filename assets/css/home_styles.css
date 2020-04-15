@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+legend{
+    background-color: white;
+    color: rgb(55, 241, 126); 
+   
+    font-size: 2em; 
+    font-weight: bolder;
+}
+form{
+    margin: 20px 0; 
+    width: 60%;
+
+}
+fieldset{
+    border: 1px solid black; 
+    box-shadow: 0 0 5px 0 black;
+    font-family: monospace;
+    padding: 2em 0  2em 2em; 
+}
+form label{
+    display: inline-block;
+    font-size: 1.5em; 
+    background-color: black; 
+    color: white; 
+    padding: 10px 10px 0 10px; 
+    border-radius: 4px 4px  0 0;
+    width: 30%; 
+    text-align: center;
+   
+}
+form input{
+    width: 80%;
+    font-size: 1.2em; 
+    display: block;
+    padding: 5px;
+    margin-bottom: 30px; 
+}

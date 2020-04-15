@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+input:focus, input:active,
+button:focus, button:active, 
+textarea:active, textarea:focus, 
+select:focus, select:active
+option:focus, option:active{
+    outline: none; 
+}
+
+.wrapper form{
+    display: grid; 
+    
+}
+.wrapper form > div{
+    padding: 5px 10px; 
+    box-sizing: content-box;
+}
+
+.wrapper form label{
+    display: block; 
+    font-size: 1em; 
+    text-transform: uppercase;
+    font-size: 0.8em;
+    margin: 5px 0 10px 5px;  
+}
+.wrapper form input{
+    border: none; 
+    padding: 0.4em;  
+    
+}
+.wrapper > h1{
+    padding-top: 20px;
+    font-family: 'Inconsolata', monospace;
+    grid-column: 1/3;
+    text-align: center;
+    animation-name: jiggle;
+    animation-duration: 1s; 
+    animation-iteration-count: infinite;
+    /* animation-fill-mode: both;
+     */
+     animation-direction: alternate;
+}
+#description-container{
+    grid-column: 1/3;
+    border-top: 1px solid grey; 
+}
+#description-container textarea{
+    width: 90%;
+    border: none; 
+    padding: none;  
+    resize: none;
+    font-size: 1.2em; 
+    background-color: transparent;
+}
+.bg-grey{
+    background-color: thistle;
+}
+#category-container{
+    grid-column: 1/2;
+    border-top: 1px solid grey; 
+    border-bottom: 1px solid grey;
+
+
+}
+#due-date-container{
+    grid-column: 2/3;
+    border-top: 1px solid grey; 
+    border-left: 1px solid grey; 
+    border-bottom: 1px solid grey;
+}
+#due-date{
+    background-color: transparent;
+    font-size: 1.2em; 
+}
+#category{
+    width: 100%; 
+    border: none; 
+    font-family: monospace;
+    font-size: 1.25em;
+    background-color: transparent;
+}
+#category option{
+    padding: 10px 0; 
+}
+.transparent{
+    background-color:transparent !important;
+}
+#btns-container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;  
+    margin: 2em auto; 
+}
+#btns-container .fa{
+    font-size: 0.8em; 
+}
+
+.todo-container{
+    display: flex;
+    flex-direction: column;
+}
+.todo{
+    border-top: 1px solid grey; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.todo-details{
+    display: inline-block;
+    width: 70%; 
+    color: grey; 
+    font-family: monospace;
+}
+.todo-details h3{
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-align: justify;
+}
+.pending-todo{
+    width: 1em; 
+    height: 1em; 
+}
+.todo-category{
+    text-transform: uppercase;
+    font-family: sans-serif;
+    display: inline-block;
+    background-color: red; 
+    width: 20%; 
+    padding: 10px 0;  
+    text-align: center;
+    font-size: 1.4em; 
+    color: white; 
+}
+
+
+@media only screen and (max-width: 700px){
+    .todo-details{
+        width: 50%;
+        
+    }
+    .todo-category{
+        padding:10px 0;  
+        font-size: 1.1em  ;
+        width: 25%; 
+
+    }
+    #btns-container{
+        width: 100%; 
+    }
+}
+@media only screen and (max-width: 500px){
+    .container{
+        width: 95%; 
+    }
+    #category{
+        font-size: 1em; 
+    }
+    .todo-category{
+        width: 25%; 
+    }
+}
+
+
+@keyframes jiggle{
+    0%{
+        transform: scale(1) translateX(-5px);
+        letter-spacing: 0px;
+        opacity: 0;
+    }
+    25%{
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    50%{
+        transform: scale(1);
+        opacity: 0.5; 
+    }
+    75%{
+        transform: rotate(5deg);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(5px);
+        letter-spacing: 1vw;
+    }
+}
