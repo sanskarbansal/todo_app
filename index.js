@@ -54,6 +54,10 @@ app.use(express.static('./assets'));
 //Setting Up Home route. 
 app.use('/', require('./routes/index')); 
 
+app.use('*', (req, res)=>{
+    res.render('404.ejs'); 
+}); 
+
 //Started server on port 5500.
 app.listen(PORT, (err)=>{
     if(err){

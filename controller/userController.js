@@ -25,30 +25,42 @@ module.exports.profile = function(req, res){
     }); 
 }; 
 
+module.exports.logout = function(req, res){
+    if(req.isAuthenticated()){
+        req.logout(); 
+    }
+     return res.redirect('/'); 
+
+}
+
 //Controller for add-todo route i.e /add-todo.
 module.exports.addTodo = function(req, res){
-    var desc = req.body.description; 
-    var date = req.body.date; 
-    var cat = req.body.category; 
-    var uid = req.user._id; 
-    
-    //Validating whether the form data is blank or not. 
-    if(desc.trim() != "" && date.trim() != ""){
-    //Creating a documnet of Todo Schema. 
-        Todo.create({
-            description: desc, 
-            deadline: date, 
-            category: cat, 
-            user: uid
-        },
-        (err, document)=>{
-            if(err){
-                console.log("Error while creating todo!"); 
-                return ;
-            } 
-        });
+    if(req.isAuthenticated()){
+        var desc = req.body.description; 
+        var date = req.body.date; 
+        var cat = req.body.category; 
+        var uid = req.user._id; 
+        
+        //Validating whether the form data is blank or not. 
+        if(desc.trim() != "" && date.trim() != ""){
+        //Creating a documnet of Todo Schema. 
+            Todo.create({
+                description: desc, 
+                deadline: date, 
+                category: cat, 
+                user: uid
+            },
+            (err, document)=>{
+                if(err){
+                    console.log("Error while creating todo!"); 
+                    return ;
+                } 
+            });
+        }
+        return res.redirect('back');   
+    }else{
+        return res.redirect('/'); 
     }
-    return res.redirect('back');   
 }
 
 
@@ -60,14 +72,18 @@ module.exports.deleteTodo = function(req, res){
     Request that is comming looks like http://domain.com/user/delete-todo/5e953841ff05b644a8d1b80e,5e953841ff05b644a8d1b80e 
     this gets converted to an array of [5e953841ff05b644a8d1b80e,5e953841ff05b644a8d1b80e ](If 2 todo are selected similarly for n todo's)
     */
-    let arr = req.params.id.split(','); 
-    arr.forEach(element => {
-        Todo.findByIdAndDelete(element, (err)=>{
-            if(err){
-                console.log("Error while deleting document."); 
-                return; 
-            }
-        })
-    });
-   res.redirect('back'); 
+    if(req.isAuthenticated()){
+        let arr = req.params.id.split(','); 
+        arr.forEach(element => {
+            Todo.findByIdAndDelete(element, (err)=>{
+                if(err){
+                    console.log("Error while deleting document."); 
+                    return; 
+                }
+            })
+        });
+        return res.redirect('back'); 
+    }else{
+        return res.redirect('/'); 
+    }
 }

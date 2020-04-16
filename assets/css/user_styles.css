@@ -29,17 +29,33 @@ option:focus, option:active{
     padding: 0.4em;  
     
 }
-.wrapper > h1{
-    padding-top: 20px;
-    font-family: 'Inconsolata', monospace;
+.wrapper header{
+    display: flex;
+    justify-content: space-evenly;
     grid-column: 1/3;
+    align-items: center;
+}
+.wrapper header h1{
+    padding: 10px; 
+    font-family: 'Inconsolata', monospace;
     text-align: center;
-    animation-name: jiggle;
-    animation-duration: 1s; 
-    animation-iteration-count: infinite;
-    /* animation-fill-mode: both;
-     */
-     animation-direction: alternate;
+}
+.wrapper header a{
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 1.5em; 
+    padding: 10px; 
+    color: white; 
+    background: #12c2e9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.wrapper header a:hover{
+    transition: all 1s;
+    background: #0cebeb;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 }
 #description-container{
     grid-column: 1/3;

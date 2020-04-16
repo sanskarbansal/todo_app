@@ -10,7 +10,8 @@ const userController = require('../controller/userController.js');
 router.get('/profile', userController.profile); 
 router.get('/', (req, res)=>{
     res.redirect('/user/profile'); 
-})
+}); 
+router.get('/logout', userController.logout); 
 
 router.post('/add-todo', userController.addTodo); 
 router.get('/delete-todo/:id', userController.deleteTodo); 
