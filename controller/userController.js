@@ -5,9 +5,9 @@ const Todo = require('../models/todo');
 module.exports.profile = function(req, res){
     if(!req.isAuthenticated()){
         return res.redirect('/'); 
-    }
+    } 
     //Fetching the al the todo's  data and passing it to the view i.e ejs template. 
-    Todo.find({}, (err, document)=>{
+    Todo.find({user: req.user._id}, (err, document)=>{
         if(err){
             console.log("Error while fetching documents!"); 
             return; 
@@ -21,7 +21,7 @@ module.exports.profile = function(req, res){
             dates.push(date.toDateString()); 
         }
 
-        res.render('user', {todos: document, date: dates}); 
+        res.render('user', {todos: document, date: dates, user: req.user}); 
     }); 
 }; 
 
@@ -30,6 +30,7 @@ module.exports.addTodo = function(req, res){
     var desc = req.body.description; 
     var date = req.body.date; 
     var cat = req.body.category; 
+    var uid = req.user._id; 
     
     //Validating whether the form data is blank or not. 
     if(desc.trim() != "" && date.trim() != ""){
@@ -37,7 +38,8 @@ module.exports.addTodo = function(req, res){
         Todo.create({
             description: desc, 
             deadline: date, 
-            category: cat
+            category: cat, 
+            user: uid
         },
         (err, document)=>{
             if(err){
