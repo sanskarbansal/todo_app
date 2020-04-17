@@ -1,31 +1,79 @@
 <link rel="stylesheet" href="/css/home_styles.css">
 <div class="container">
+    <h1>Welcome to the todo app</h1>
+    <% if(log_s.length > 0){ %> 
+        <div class="message">
+            <p>
+               <%= log_s %> 
+            </p>
+        </div>
+    <% } %> 
     <form action="/sign-in" method="POST">
         <fieldset>
             <legend>Sign In</legend>
             <label for="username">Username</label>
-            <input type="text" name="uname" id="username">
-            <label for="password">Password</label>
-            <input type="password" name="pname" id="password">
+            <input type="text" name="uname" id="username" placeholder="Enter Username">
+            <label for="password" >Password</label>
+            <input type="password" name="pname" id="password" placeholder="Enter Password">
             <button type="submit" class="btn blue">Sign In</button>
         </fieldset>
     </form>
 </div>
 <div class="container">
+    <% if(message.length > 0){ %> 
+        <div class="message">
+            <p>
+               <%= message %> 
+            </p>
+        </div>
+    <% } %> 
+    
     <form action="/sign-up" method="post">
         <fieldset>
             <legend>Sign Up</legend>
             <label for="name">Name</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" placeholder="Enter Name">
             <label for="username">Username</label>
-            <input type="text" name="uname" id="username">
+            <input type="text" name="uname" id="username" placeholder="Enter Username">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" placeholder="Enter Email">
             <label for="password">Password</label>
-            <input type="password" name="pname" id="password">
+            <input type="password" name="pname" id="password" placeholder="Enter Password">
             <label for="cpassword">Confirm Password</label>
-            <input type="password" name="cpname" id="cpassword">
+            <input type="password" name="cpname" id="cpassword" placeholder="Enter Password">
             <button type="submit" class="btn purple">Sign Up</button>
         </fieldset>
     </form>
 </div>
+
+
+<script>
+   var signUpForm =  $('form fieldset');
+   var pwd = signUpForm.children('#password'), cpwd = signUpForm.children('#cpassword');  
+   if(pwd.val()!==cpwd.val()){
+       alert("Password don't match"); 
+       signUpForm.on('submit', (e)=>{
+           e.preventDefault(); 
+       }); 
+   }
+
+   signUpForm.children('input').on('focus', function(){
+
+       $(this).prev('label').css({
+           transform: "scale(1)"
+       }); 
+    
+   }); 
+   signUpForm.children('input').on('focusout', function(){
+     
+       $(this).prev('label').css({
+           transform: "scale(0)"
+       }); 
+   }); 
+    var message = $( '.message' );
+    if ( message.length ) {
+        setTimeout( function() {
+            message.fadeOut( 'slow' );
+        }, 1000 );
+    }
+</script>
