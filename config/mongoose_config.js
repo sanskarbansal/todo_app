@@ -1,7 +1,8 @@
 const mongoose = require('mongoose'); 
 
 //Setting up connnection with mongodb using mongoose(ODM).  
-mongoose.connect('mongodb://localhost:27017/todo_db', {useNewUrlParser: true, useUnifiedTopology: true}); 
+
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true}); 
 
 //Grabbing the connection in a variable db.
 const db = mongoose.connection; 
