@@ -5,6 +5,9 @@
             <h1>TODO APP</h1>
             <% if(locals.user){ %> 
                 <div>Your Shareable Link: <span id="link"></span>/<%= user.shareLink%></div>
+                <script src="/js/script.js">
+                    $('#link').text(window.location.hostname); 
+                </script>
                 <a href="/user/logout">Logout</a>
             <% } %> 
         </header>
@@ -62,6 +65,4 @@
         <% } %>
     </div>
 </div>
-<script src="/js/script.js">
-    $('#link').text(window.location.hostname); 
-</script>
+
