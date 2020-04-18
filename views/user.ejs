@@ -4,7 +4,7 @@
         <header>
             <h1>TODO APP</h1>
             <% if(locals.user){ %> 
-                <div>Your Shareable Link: http://localhost:5500/<%= user.shareLink%></div>
+                <div>Your Shareable Link: window.location.hostname/<%= user.shareLink%></div>
                 <a href="/user/logout">Logout</a>
             <% } %> 
         </header>
