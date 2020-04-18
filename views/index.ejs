@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="/css/home_styles.css">
+
 <div class="container">
     <h1>Welcome to the todo app</h1>
     <% if(log_s.length > 0){ %> 
-        <div class="message">
+        <div class="message alrt">
             <p>
                <%= log_s %> 
             </p>
@@ -21,7 +22,7 @@
 </div>
 <div class="container">
     <% if(message.length > 0){ %> 
-        <div class="message">
+        <div class="message alrt">
             <p>
                <%= message %> 
             </p>
@@ -74,6 +75,6 @@
     if ( message.length ) {
         setTimeout( function() {
             message.fadeOut( 'slow' );
-        }, 1000 );
+        }, 3000 );
     }
 </script>

@@ -49,19 +49,6 @@ form input{
     margin-bottom: 30px; 
 }
 
-.message{
-    font-family: monospace;
-    font-size: 1.2em;
-    box-sizing: border-box;
-    width: 60%; 
-    background-color: blue; 
-    color: white; 
-    border-radius: 4px;
-    padding: 0 20px; 
-    margin-top: 20px;
-    /* display: none; */
-}
-
 
 @media only screen and (max-width: 750px){
     form{
