@@ -1,5 +1,6 @@
 //Importing the Todo Model for (CRD Operations). 
 const Todo = require('../models/todo'); 
+const User = require('../models/user'); 
 
 //Controller for home route i.e /index . 
 module.exports.profile = function(req, res){
@@ -83,18 +84,33 @@ module.exports.deleteTodo = function(req, res){
     //Check if the user is authenticated or not and if not then don't give the permission to user to delete the todo. 
     if(req.isAuthenticated()){
         let arr = req.params.id.split(','); 
-        arr.forEach(element => {
-            if(element.user == req.user.id){
-                Todo.findByIdAndDelete(element, (err)=>{
-                    if(err){
-                        console.log("Error while deleting document."); 
-                        return; 
-                    }
-                });
+        arr.forEach(async function (element){
+            let todo = await Todo.findById(element);
+            if(todo.user == req.user.id){
+                todo.remove(); 
             }
         });
         return res.redirect('back'); 
     }else{
         return res.redirect('back'); 
     }
+}
+
+
+//Make a shareable link by which user can share their todo's with there friends,relative and so on..
+//We first check whether the link is linked with a user or not, if there is any link associated with any user then show their todos. 
+module.exports.shareProfile = async function(req, res){
+    let user = await User.findOne({shareLink: req.params.id}); 
+    if(!user){
+        return res.redirect('/'); 
+    }
+    let todos = await Todo.find({user: user._id}); 
+    let dates = []; 
+    
+    for(let todo of todos){
+        let date = new Date(todo.deadline); 
+        dates.push(date.toDateString()); 
+    }
+     return res.render('profile', {todos: todos, date: dates,name: user.name}); 
+
 }

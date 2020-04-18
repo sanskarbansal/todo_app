@@ -1,6 +1,6 @@
 const User = require('../models/user'); 
 const flash = require('connect-flash'); 
-
+const shortid = require('shortid');
 // Controller for /index route. 
 module.exports.home = function(req, res){
     if(req.isAuthenticated()){
@@ -30,7 +30,8 @@ module.exports.createUser = function(req, res){
         User.create({username: req.body.uname, 
             password: req.body.pname, 
             name: req.body.name, 
-            email: req.body.email
+            email: req.body.email, 
+            shareLink: shortid.generate()
         }, (err)=>{
             if(err){
                 console.log("Error while creating a user in createUser"); 

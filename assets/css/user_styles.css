@@ -31,9 +31,22 @@ option:focus, option:active{
 }
 .wrapper header{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     grid-column: 1/3;
     align-items: center;
+    margin-bottom: 10px; 
+}
+header div{
+    text-align: center;
+    padding-bottom: 20px; 
+    font-size: 1.3em;
+    font-weight: bolder;
+    font-family: monospace;
+    color: rgb(238, 103, 103);  
+}
+.wrapper h1 div{
+    min-width: 30%; 
 }
 .wrapper header h1{
     padding: 10px; 

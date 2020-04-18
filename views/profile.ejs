@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/css/user_styles.css">
+<div class="container">
+    <div class="wrapper">
+        <header>
+            <h1>TODO's OF <%= name %></h1>
+            <% if(locals.user){ %> 
+                <a href="/user/logout">Logout</a>
+            <% } %> 
+        </header>
+    </div>
+    <div class="todo-container">
+        <% for(let i = 0; i< todos.length; i++){ %> 
+        <div class="todo">
+            <div class="todo-details">
+                <h3><%= todos[i].description %></h3>
+                <p> <i class="fa fa-calendar"></i> <%= date[i] %></p>
+            </div>
+            
+            <% if(todos[i].category == "work" ){ %>
+                <div class="todo-category purple">
+            <% }else if( todos[i].category == "cleaning"){ %>
+                <div class="todo-category black">
+            <% }else if( todos[i].category == "other"){ %>
+                <div class="todo-category blue">
+            <% }else if( todos[i].category == ""){ %>
+                <div class="todo-category transparent">
+            <% } else{ %>
+                <div class="todo-category">
+            <% } %>
+                    <%= todos[i].category %>
+                </div>
+
+        </div>
+        <% } %>
+    </div>
+</div>

@@ -3,7 +3,10 @@
     <div class="wrapper">
         <header>
             <h1>TODO APP</h1>
-            <a href="/user/logout">Logout</a>
+            <% if(locals.user){ %> 
+                <div>Your Shareable Link: http://localhost:5500/<%= user.shareLink%></div>
+                <a href="/user/logout">Logout</a>
+            <% } %> 
         </header>
 
         <form action="/user/add-todo" method="post" id="add-task-form">

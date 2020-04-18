@@ -16,6 +16,9 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String, 
         required: true
+    }, 
+    shareLink: {
+        type: String
     }
 },{
     timestamps: true
