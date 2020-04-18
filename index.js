@@ -4,8 +4,8 @@ const passport = require('./config/passport_config'), session = require('express
 const flash = require('connect-flash'); 
 //Setting up express
 const app = express(); 
-const PORT = 5500 ;
-
+const PORT = (process.env.PORT || 5500);
+ 
 //Imported database files and packages(session modules).
 const MongoConnect = require('connect-mongo')(session), db = require('./config/mongoose_config');
 const Todo = require('./models/todo');
