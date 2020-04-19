@@ -36,3 +36,5 @@ $('#add-task-form').on('submit', function(e){
     }
 
 });
+
+$('#link').text(window.location.hostname); 
