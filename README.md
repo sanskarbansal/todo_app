@@ -12,4 +12,4 @@ npm install
 ```
 npm start
 ```
-[Live Preview](http://toodoos-app.herokuapp.com/){target="_blank"}
+[Live Preview](http://toodoos-app.herokuapp.com/)
